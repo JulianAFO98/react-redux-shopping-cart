@@ -7,7 +7,7 @@ export interface Product {
 }
 
 export interface ProductWithCount extends Product {
-    count: 1
+    count: number
 }
 
 interface NavDesplegableProps {

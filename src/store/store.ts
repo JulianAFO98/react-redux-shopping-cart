@@ -9,7 +9,7 @@ const persistenceLocalStorageMiddleWare: Middleware = (store) => (next) => (acti
     const { cart: prevCart }: { cart: Product[] } = store.getState();
     next(action);
     const { cart: nextCart }: { cart: Product[] } = store.getState();
-    if (prevCart.length !== nextCart.length) {
+    if (JSON.stringify(prevCart) !== JSON.stringify(nextCart)) {
         localStorage.setItem("cart-data", JSON.stringify(nextCart));
     }
 };

@@ -1,6 +1,7 @@
 import { Navbar } from "./components/Navbar"
 import { Products } from "./components/Products"
 import { ShoppingCart } from "./components/ShoppingCart"
+import { TotalPrice } from "./components/TotalPrice"
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Navbar />
       <Products />
       <ShoppingCart />
+      <TotalPrice />
     </>
   )
 }
