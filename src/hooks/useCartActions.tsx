@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../hooks/useStore"
-import { addToCart, cleanCart, updateQtyCart } from "../store/cart/slice";
+import { addToCart, cleanCart, updateQtyCart, deleteFromCart } from "../store/cart/slice";
 
 export function useCartActions() {
     const dispatch = useAppDispatch();
@@ -16,9 +16,12 @@ export function useCartActions() {
         dispatch(updateQtyCart({ value, id }));
     }
 
+    const deleteItem = (id: string) => {
+        dispatch(deleteFromCart({ id }));
+    }
 
     const clean = () => {
         dispatch(cleanCart());
     }
-    return { addProductToCar, clean, cart, updateQty };
+    return { addProductToCar, clean, cart, updateQty, deleteItem };
 }

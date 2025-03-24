@@ -1,10 +1,10 @@
-import { useAppSelector } from "../hooks/useStore";
 import { useCartActions } from "../hooks/useCartActions";
+import { useFilters } from "../hooks/useFilters";
 
 
 
 export function Products() {
-    const products = useAppSelector(state => state.products);
+    const { filteredProducts } = useFilters();
     const { addProductToCar } = useCartActions();
 
     const handleClick = (id: string) => {
@@ -14,8 +14,7 @@ export function Products() {
     return (
         <main>
             {
-
-                products.map(product => {
+                filteredProducts.map(product => {
 
                     return (
                         <div className="product-container">

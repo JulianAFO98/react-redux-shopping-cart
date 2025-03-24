@@ -1,6 +1,7 @@
 import { configureStore, Middleware } from "@reduxjs/toolkit";
 import productReducer from "./products/slice";
 import cartReducer from "./cart/slice";
+import filterReducer from "./filters/slice"
 import { Product } from "../types";
 
 
@@ -20,7 +21,8 @@ const persistenceLocalStorageMiddleWare: Middleware = (store) => (next) => (acti
 export const store = configureStore({
     reducer: {
         products: productReducer,
-        cart: cartReducer
+        cart: cartReducer,
+        filters: filterReducer,
     },
     middleware: (getDefaultMiddleware) => {
         return getDefaultMiddleware().concat(persistenceLocalStorageMiddleWare)
